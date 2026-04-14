@@ -20,6 +20,7 @@ class patient{
         pid++;
         gender=g;
         age=a;
+        name=n;
 
     }
     
@@ -181,6 +182,49 @@ void view_appointment(){
 
 
 }
+void search_patient(){
+    int id;
+    cout<<"Enter patient ID: ";
+    cin>>id;
+
+    if(mp.find(id) == mp.end()){
+        cout<<"Patient not found"<<endl;
+        return;
+    }
+
+    for(int i=0;i<allpatient.size();i++){
+        if(allpatient[i].ID==id){
+            cout<<"---PATIENT FOUND---"<<endl;
+            cout<<"ID: "<<allpatient[i].ID<<endl;
+            cout<<"Name: "<<allpatient[i].name<<endl;
+            cout<<"age: "<<allpatient[i].age<<endl;
+            cout<<"Gender: "<<allpatient[i].gender<<endl;
+
+        }
+}
+}
+
+void search_patient(){
+    int id;
+    cout<<"Enter doctor ID: ";
+    cin>>id;
+
+    if(md.find(id) == md.end()){
+        cout<<"Doctor not found"<<endl;
+        return;
+    }
+
+    for(int i=0;i<alldoctor.size();i++){
+        if(alldoctor[i].ID==id){
+            cout<<"---DOCTOR FOUND---"<<endl;
+            cout<<"ID: "<<alldoctor[i].ID<<endl;
+            cout<<"Name: "<<alldoctor[i].name<<endl;
+            cout<<"age: "<<alldoctor[i].age<<endl;
+            cout<<"Gender: "<<alldoctor[i].gender<<endl;
+
+        }
+}
+}
 // checking whether the patient id and doctor id is present or not before scheduling appointment
 
 int main(){
@@ -196,6 +240,7 @@ int main(){
         cout<<"4. View patient details"<<endl;
         cout<<"5. View doctor details"<<endl;
         cout<<"6. View appointment details"<<endl;
+        cout<<"7. Search by patient id"<<endl;
         cout<<"0. Exit"<<endl;
         
         cout<<"Enter your choice: ";
@@ -220,7 +265,8 @@ int main(){
             view_appointment();
             break;
             case 7:
-            exit(0);
+            search_patient();
+            break;
             default:
             cout<<"Invalid choice"<<endl;
 
